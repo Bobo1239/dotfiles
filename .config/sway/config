@@ -17,8 +17,8 @@ output * bg ~/Pictures/Wallpapers/kimi_no_na_wa_1.png fill
 
 # WORKSTATION-ARCH
 output "ViewSonic Corporation XG3240C 0x00000101" mode 2560x1440@143.912003Hz position 0 0
-output "Hewlett Packard HP ZR24w CNT1301338" mode 1920x1200@59.950001Hz position 2560 240
-output "Unknown DM700A-H 0x00000000" mode 1920x1080@60.000000Hz position -1920 360
+output "Hewlett Packard HP ZR24w CNT1301338" position 2560 240
+output "Unknown DM700A-H 0x00000000" position -1920 360
 
 # THINKPAD-ARCH
 output 'Panasonic Industry Company 0x96A2 0x00000000' scale 2
