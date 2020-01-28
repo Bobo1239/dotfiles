@@ -9,6 +9,7 @@ alias vim=nvim
 alias cat=bat
 alias ls=exa
 alias gits="git status"
+alias cya="shutdown -h now"
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
