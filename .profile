@@ -10,5 +10,5 @@ alias cat=bat
 alias ls=exa
 alias gits="git status"
 
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"

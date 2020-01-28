@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Use the same JVM version as the one used for compilation
+# Can't connect to Ghidra Server otherwise
+export PATH="/usr/lib/jvm/zulu-12/bin/:$PATH"
+exec /usr/bin/ghidra "$@"
