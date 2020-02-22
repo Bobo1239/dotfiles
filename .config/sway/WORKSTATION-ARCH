@@ -4,3 +4,4 @@ workspace 3 output "ViewSonic Corporation XG3240C 0x00000101"
 workspace 4 output "ViewSonic Corporation XG3240C 0x00000101"
 
 exec discord --start-minimized
+exec riot-desktop --hidden
