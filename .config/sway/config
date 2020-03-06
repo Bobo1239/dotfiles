@@ -196,7 +196,8 @@ bindsym XF86AudioMicMute exec amixer sset Capture toggle
 bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
 
-bindsym Print exec grim -g "$(slurp)" ~/Pictures/$(date +'%Y-%m-%d-%H%M%S_grim.png')
+bindsym Print exec grim -g "$(slurp)" ~/Pictures/$(date +'%Y-%m-%d_%H-%M-%S_grim.png')
+bindsym $mod+Print exec grim-select ~/Pictures/$(date +'%Y-%m-%d_%H-%M-%S_grim.png')
 bindsym $mod+l exec $lock
 
 bindsym $mod+Prior workspace prev

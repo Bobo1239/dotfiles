@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# From https://github.com/emersion/slurp/pull/28#issuecomment-498192521
+region=$(
+    swaymsg -t get_tree |\
+    jq -r '
+        recurse(.nodes[]?, .floating_nodes[]?) |
+        select(.visible or (.type == "output" and .active)) |
+        .rect |
+        "\(.x),\(.y) \(.width)x\(.height)"
+    ' |\
+    slurp
+)
+[ ! -z "$region" ] && exec grim -g "$region" $1
