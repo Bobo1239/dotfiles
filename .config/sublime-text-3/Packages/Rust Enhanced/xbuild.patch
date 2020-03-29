@@ -1,0 +1,38 @@
+diff --git a/rust/cargo_settings.py b/rust/cargo_settings.py
+index 56b5c7f..6643195 100644
+--- a/rust/cargo_settings.py
++++ b/rust/cargo_settings.py
+@@ -389,8 +389,32 @@ class CargoSettings(object):
+         if toolchain:
+             result.append('+' + toolchain)
+ 
++        from pathlib import Path
++        import toml
++
++        def determine_cargo_target(path):
++            path = Path(path)
++            paths = [path] + list(path.parents)
++            for path in paths:
++                config = path / ".cargo" / "config"
++                if config.exists():
++                    with config.open() as f:
++                        parsed = toml.load(f)
++                        try:
++                            return parsed["build"]["target"]
++                        except KeyError:
++                            pass
++            return None
++        cargo_target = determine_cargo_target(working_dir)
++
++        targets_with_sysroot = ["i686-pc-windows-gnu", "i686-pc-windows-msvc", "i686-unknown-linux-gnu", "x86_64-apple-darwin", "x86_64-pc-windows-gnu", "x86_64-pc-windows-msvc", "x86_64-unknown-linux-gnu", "aarch64-apple-ios", "aarch64-fuchsia", "aarch64-linux-android", "aarch64-pc-windows-msvc", "aarch64-unknown-linux-gnu", "aarch64-unknown-linux-musl", "arm-linux-androideabi", "arm-unknown-linux-gnueabi", "arm-unknown-linux-gnueabihf", "arm-unknown-linux-musleabi", "arm-unknown-linux-musleabihf", "armebv7r-none-eabi", "armebv7r-none-eabihf", "armv5te-unknown-linux-gnueabi", "armv5te-unknown-linux-musleabi", "armv7-linux-androideabi", "armv7a-none-eabi", "armv7r-none-eabi", "armv7r-none-eabihf", "armv7-unknown-linux-gnueabihf", "armv7-unknown-linux-musleabihf", "asmjs-unknown-emscripten", "i586-pc-windows-msvc", "i586-unknown-linux-gnu", "i586-unknown-linux-musl", "i686-linux-android", "i686-unknown-freebsd", "i686-unknown-linux-musl", "mips-unknown-linux-gnu", "mips-unknown-linux-musl", "mips64-unknown-linux-gnuabi64", "mips64el-unknown-linux-gnuabi64", "mipsel-unknown-linux-gnu", "mipsel-unknown-linux-musl", "powerpc-unknown-linux-gnu", "powerpc64-unknown-linux-gnu", "powerpc64le-unknown-linux-gnu", "riscv32imac-unknown-none-elf", "riscv32imc-unknown-none-elf", "riscv64gc-unknown-none-elf", "riscv64imac-unknown-none-elf", "s390x-unknown-linux-gnu", "sparc64-unknown-linux-gnu", "sparcv9-sun-solaris", "thumbv6m-none-eabi", "thumbv7em-none-eabi", "thumbv7em-none-eabihf", "thumbv7m-none-eabi", "thumbv7neon-linux-androideabi", "thumbv7neon-unknown-linux-gnueabihf", "wasm32-unknown-emscripten", "wasm32-unknown-unknown", "wasm32-wasi", "x86_64-apple-ios", "x86_64-fortanix-unknown-sgx", "x86_64-fuchsia", "x86_64-linux-android", "x86_64-rumprun-netbsd", "x86_64-sun-solaris", "x86_64-unknown-cloudabi", "x86_64-unknown-freebsd", "x86_64-unknown-linux-gnux32", "x86_64-unknown-linux-musl", "x86_64-unknown-netbsd", "x86_64-unknown-redox", "aarch64-unknown-freebsd", "aarch64-unknown-openbsd", "armv6-unknown-freebsd", "armv7-apple-ios", "armv7-unknown-freebsd", "armv7s-apple-ios", "i386-apple-ios", "i686-apple-darwin", "i686-pc-windows-msvc", "i686-unknown-haiku", "i686-unknown-netbsd", "i686-unknown-openbsd", "mips-unknown-linux-uclibc", "mipsel-unknown-linux-uclibc", "msp430-none-elf", "powerpc64-unknown-freebsd", "sparc64-unknown-netbsd", "x86_64-pc-windows-msvc", "x86_64-unknown-bitrig", "x86_64-unknown-dragonfly", "x86_64-unknown-haiku", "x86_64-unknown-openbsd", "x86_64-uwp-windows-gnu", "x86_64-uwp-windows-msvc"]
++
+         # Command to run.
+-        result.append(cmd_info['command'])
++        if cargo_target == None or cargo_target in targets_with_sysroot:
++            result.append(cmd_info['command'])
++        else:
++            # Need to make xbuild the else-branch so all custom targets land here
++            result.append("x" + cmd_info['command'])
+ 
+         # Default target.
+         if target:

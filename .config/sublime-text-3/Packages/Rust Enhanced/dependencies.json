@@ -1,0 +1,9 @@
+{
+    "*": {
+        "*": [
+            "shellenv",
+            "pathlib",
+            "python-toml"
+        ]
+    }
+}
