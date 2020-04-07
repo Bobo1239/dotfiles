@@ -11,6 +11,24 @@ set $term alacritty
 set $lock swaylock -f -i ~/Pictures/Wallpapers/kimi_no_na_wa_2.png
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
+# Base16 colors (default-dark)
+set $base00 #181818
+set $base01 #282828
+set $base02 #383838
+set $base03 #585858
+set $base04 #b8b8b8
+set $base05 #d8d8d8
+set $base06 #e8e8e8
+set $base07 #f8f8f8
+set $base08 #ab4642
+set $base09 #dc9656
+set $base0A #f7ca88
+set $base0B #a1b56c
+set $base0C #86c1b9
+set $base0D #7cafc2
+set $base0E #ba8baf
+set $base0F #a16946
+
 ### Output configuration
 # List outputs: `swaymsg -t get_outputs`
 output * bg ~/Pictures/Wallpapers/kimi_no_na_wa_1.png fill
@@ -203,17 +221,20 @@ bindsym $mod+l exec $lock
 bindsym $mod+Prior workspace prev
 bindsym $mod+Next workspace next
 
+set $bar_fg $base04
+set $bar_bg $base00
+set $bar_primary $base09
+set $bar_comment $base03
+
 bar {
     position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    status_command ~/.cargo/bin/bar1239
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        statusline $bar_fg
+        background $bar_bg
+        focused_workspace $bar_primary $bar_primary $bar_bg
+        inactive_workspace $bar_bg $bar_bg $bar_comment
     }
 }
 
