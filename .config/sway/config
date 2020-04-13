@@ -7,10 +7,6 @@ set $down j
 set $up k
 set $right l
 
-set $term alacritty
-set $lock swaylock -f -i ~/Pictures/Wallpapers/kimi_no_na_wa_2.png
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-
 # Base16 colors (default-dark)
 set $base00 #181818
 set $base01 #282828
@@ -28,6 +24,10 @@ set $base0C #86c1b9
 set $base0D #7cafc2
 set $base0E #ba8baf
 set $base0F #a16946
+
+set $term alacritty
+set $lock swaylock -f -i ~/Pictures/Wallpapers/kimi_no_na_wa_2.png
+set $menu bemenu-run -i -p "" --fn Inconsolata --fb \\$base00 --nb \\$base00 --hb \\$base00 --tf \\$base05 --nf \\$base05 --hf \\$base09 | xargs swaymsg exec --
 
 ### Output configuration
 # List outputs: `swaymsg -t get_outputs`
