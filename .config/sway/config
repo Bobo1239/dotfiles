@@ -27,7 +27,7 @@ set $base0F #a16946
 
 set $term alacritty
 set $lock swaylock -f -i ~/Pictures/Wallpapers/kimi_no_na_wa_2.png
-set $menu bemenu-run -i -p "" --fn Inconsolata --fb \\$base00 --nb \\$base00 --hb \\$base00 --tf \\$base05 --nf \\$base05 --hf \\$base09 | xargs swaymsg exec --
+set $menu bemenu-run -i -m all -p "" --fn Inconsolata --fb \\$base00 --nb \\$base00 --hb \\$base00 --tf \\$base05 --nf \\$base05 --hf \\$base09 | xargs swaymsg exec --
 
 ### Output configuration
 # List outputs: `swaymsg -t get_outputs`
