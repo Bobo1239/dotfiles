@@ -17,4 +17,4 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 # Fuck pyur...
-export GIT_SSH=$HOME/bin/ssh_fuck_pyur.py
+# export GIT_SSH=$HOME/bin/ssh_fuck_pyur.py
