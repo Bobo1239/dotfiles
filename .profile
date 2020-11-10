@@ -11,6 +11,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 alias vim=nvim
 alias cat=bat
 alias ls=exa
+alias yay=paru
 alias gits="git status"
 alias cya="shutdown -h now"
 
