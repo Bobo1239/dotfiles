@@ -25,5 +25,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
+eval (dircolors -c)
+
 # Fuck pyur...
 # export GIT_SSH=$HOME/bin/ssh_fuck_pyur.py
