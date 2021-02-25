@@ -168,7 +168,7 @@ input 1386:770:Wacom_Intuos_PT_S_Pen map_to_output "ViewSonic Corporation XG3240
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    # bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
