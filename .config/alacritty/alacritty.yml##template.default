@@ -50,3 +50,8 @@ colors:
     - { index: 19, color: '0x383838' }
     - { index: 20, color: '0xb8b8b8' }
     - { index: 21, color: '0xe8e8e8' }
+
+  search:
+    focused_match:
+      foreground: '0x181818'
+      background: '0xf7ca88'
