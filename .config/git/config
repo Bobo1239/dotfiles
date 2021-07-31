@@ -1,0 +1,22 @@
+# NOTE: Override host-specific settings in ~/.gitconfig
+
+[user]
+    email = bobo1239@web.de
+    name = Boris-Chengbiao Zhou
+
+[core]
+    pager = delta
+
+[pull]
+    ff = only
+
+[init]
+    defaultBranch = master
+
+[delta]
+    syntax-theme = base16
+    navigate = true
+    relative-paths = true
+
+[interactive]
+    diffFilter = delta --color-only
