@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
+# Note: You can also use `paru -c`
 pacman -Rns $(pacman -Qtdq)
