@@ -33,23 +33,6 @@ set $menu bemenu-run -i -m all -p "" --fn Inconsolata --fb \\$base00 --nb \\$bas
 # List outputs: `swaymsg -t get_outputs`
 output * bg ~/Pictures/Wallpapers/kimi_no_na_wa_1.png fill
 
-# WORKSTATION-ARCH
-# Breaks some popups/menus:
-# - https://github.com/swaywm/sway/issues/3135
-# - https://bugreports.qt.io/browse/QTBUG-53813
-# output "Unknown DM700A-H 0x00000000" position 0 360
-# output "ViewSonic Corporation XG3240C 0x00000101" mode 2560x1440@143.912003Hz position 1920 0
-# output "Hewlett Packard HP ZR24w CNT1301338" position 4480 240
-
-# XWayland windows are unclickable on left monitor:
-# https://gitlab.freedesktop.org/xorg/xserver/issues/899
-output "Unknown DM700A-H 0x00000000" position -1920 360
-output "ViewSonic Corporation XG3240C 0x00000101" mode 2560x1440@143.912003Hz position 0 0
-output "Hewlett Packard HP ZR24w CNT1301338" position 2560 240
-
-# THINKPAD-ARCH
-output 'Panasonic Industry Company 0x96A2 0x00000000' scale 2
-
 ### Idle configuration
 #
 # Example configuration:
@@ -71,9 +54,6 @@ exec swayidle -w before-sleep '$lock'
 
 # Disable mouse acceleration
 input * accel_profile flat
-
-# Map graphic tablet to main display
-input 1386:770:Wacom_Intuos_PT_S_Pen map_to_output "ViewSonic Corporation XG3240C 0x00000101"
 
 ### Key bindings
 # Basics:
