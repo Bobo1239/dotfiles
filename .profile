@@ -28,6 +28,8 @@ for rb in $HOME/.gem/ruby/*
     export PATH="$rb/bin:$PATH"
 end
 
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/.local/share/coursier/bin:$PATH"
 export PATH="$HOME/.dotnet/tools:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
