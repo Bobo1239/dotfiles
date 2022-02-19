@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Replace with /usr/lib/discord-canary/app.asar for FPS measurements (Ctrl+Shift+I > burger-menu > More tools > Rendering > Frame Rendering Stats)
+# Currently still limited to 60fps with XWayland but at least that's stable-ish once everything's loaded
+exec electron \
+    --use-gl=desktop \
+    --ignore-gpu-blocklist \
+    --enable-features=VaapiVideoDecoder \
+    --disable-features=UseOzonePlatform \
+    --enable-native-gpu-memory-buffers \
+    --enable-accelerated-mjpeg-decode \
+    --enable-accelerated-video \
+    --enable-gpu-rasterization \
+    --enable-zero-copy \
+    --disable-gpu-vsync \
+    --disable-frame-rate-limit \
+    /usr/lib/discord/app.asar $@
