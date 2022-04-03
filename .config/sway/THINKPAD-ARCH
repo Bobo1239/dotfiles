@@ -1,3 +1,4 @@
-output 'Panasonic Industry Company 0x96A2 0x00000000' scale 2
+output 'Panasonic Industry Company 0x96A2 0x00000000' scale 2 position 0 1030
+output 'Philips Consumer Electronics Company PHL 275E1 0x0000267B' position 1280 0 mode 2560x1440@74.968Hz
 
 font "Hack 8"
