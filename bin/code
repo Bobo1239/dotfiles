@@ -1,2 +1,5 @@
 #!/bin/bash
-/usr/bin/code --enable-features=UseOzonePlatform --ozone-platform=wayland $@
+# Contrary to the Arch wiki, using .config/code-flags.conf doesn't work
+# Install packages: code, code-features, code-marketplace
+# TODO: --ozone-platform-hint=auto doesn't work yet for some reason
+exec /usr/bin/code --enable-features=UseOzonePlatform --ozone-platform=wayland $@
