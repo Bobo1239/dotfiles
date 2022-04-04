@@ -1,8 +1,9 @@
 #!/bin/sh
 
+# Use discord_arch_electron package
 # Replace with /usr/lib/discord-canary/app.asar for FPS measurements (Ctrl+Shift+I > burger-menu > More tools > Rendering > Frame Rendering Stats)
 # Currently still limited to 60fps with XWayland but at least that's stable-ish once everything's loaded
-exec electron \
+exec /usr/bin/discord \
     --use-gl=desktop \
     --ignore-gpu-blocklist \
     --enable-features=VaapiVideoDecoder \
