@@ -223,9 +223,6 @@ font "Hack 10"
 titlebar_border_thickness 0
 default_border pixel 0
 
-# TODO: Remove me
-for_window [title="org.gnome.Nautilus"] floating enable, move position 0 0
-
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec gammastep
 exec mako
