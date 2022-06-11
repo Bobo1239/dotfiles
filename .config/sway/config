@@ -193,6 +193,7 @@ bindsym XF86AudioMicMute exec pamixer --default-source -t
 
 bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86Display exec toggle_dpms eDP-1
 
 bindsym Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S_grim.png')
 bindsym $mod+Print exec grim-select ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S_grim.png')
