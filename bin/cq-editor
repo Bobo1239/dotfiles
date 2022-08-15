@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+source $HOME/Development/miniforge/bin/activate
+export QT_QPA_PLATFORM=xcb
+cq-editor $@
