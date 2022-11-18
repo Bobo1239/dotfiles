@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Unfortunately there are GUI glitches with wayland (bytes view (bottom left) doesn't show ASCII fully)
+export QT_QPA_PLATFORM=xcb
+exec /usr/bin/wireshark $@
