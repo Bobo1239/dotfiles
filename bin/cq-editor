@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# https://github.com/CadQuery/CQ-editor/pull/357
-source $HOME/Development/CAD/cadquery_venv/bin/activate
+# https://github.com/Bobo1239/cadquery_setup
+source $HOME/Development/CAD/cadquery_setup/cadquery_venv/bin/activate
 export QT_QPA_PLATFORM=xcb
 cq-editor $@
