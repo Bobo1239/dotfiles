@@ -1,4 +1,4 @@
-output 'Unknown 0x0982 0x00000000' scale 2 position 0 720
+output 'BOE 0x0982 Unknown' scale 2 position 0 720
 output 'Philips Consumer Electronics Company PHL 275E1 0x0000267B' position 1920 0 mode 2560x1440@74.968Hz
 
 input 2:7:SynPS/2_Synaptics_TouchPad pointer_accel 0.5
