@@ -1,2 +1,5 @@
 [build]
 rustdocflags = ["--default-theme", "ayu"]
+
+[expand]
+theme = "base16"
