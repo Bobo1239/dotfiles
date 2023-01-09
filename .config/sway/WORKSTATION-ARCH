@@ -12,7 +12,7 @@
 # output "Hewlett Packard HP ZR24w CNT1301338" position 2560 240
 
 # Everything works but mouse jumps from middle to left monitor...
-output "Unknown DM700A-H 0x00000000" position 0 0
+output "Samsung Electronics Company Ltd DM700A-H Unknown" position 0 0
 output "ViewSonic Corporation XG3240C 0x00000101" mode 2560x1440@143.912003Hz position 1920 0
 output "Hewlett Packard HP ZR24w CNT1301338" position 4480 240
 
@@ -25,6 +25,17 @@ workspace 3 output "ViewSonic Corporation XG3240C 0x00000101"
 workspace 4 output "ViewSonic Corporation XG3240C 0x00000101"
 workspace 5 output "ViewSonic Corporation XG3240C 0x00000101"
 
+# This makes wine tray icons appear in swaybar instead of a separate floating window
+exec /home/bobo1239/Development/Random/plasma-workspace/xembed-sni-proxy/build/xembedsniproxy
+
+exec xrandr --output XWAYLAND1 --primary
 exec discord --start-minimized
+
 # exec element-desktop --hidden
 # exec easyeffects --gapplication-service
+
+# TODO: webcord introduces some kind of sporadic noise sounds which need to be fixed
+# --start-minimized doesn't work for some reason...
+# exec webcord
+# kill just closes the window
+# exec "sleep 1 && swaymsg '[title=WebCord]' kill"
