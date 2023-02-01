@@ -17,6 +17,8 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
+export IGREP_EDITOR=subl
+
 alias vim=nvim
 alias cat=bat
 alias ls=exa
