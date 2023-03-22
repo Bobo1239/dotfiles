@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Mesh viewer doesn't work with Wayland :(
+export QT_QPA_PLATFORM=xcb
+exec /usr/bin/qrenderdoc $@
