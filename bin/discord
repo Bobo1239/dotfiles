@@ -2,13 +2,12 @@
 
 # Use discord_arch_electron package
 # Add --show-fps-counter for FPS measurements.
-# Currently still limited to 60fps with XWayland but at least that's stable-ish once everything's loaded
 
 # --disable-gpu-vsync \
 # --disable-frame-rate-limit \
 exec /usr/bin/discord \
     --ignore-gpu-blocklist \
-    --disable-features=UseOzonePlatform \
+    --ozone-platform-hint=wayland \
     --enable-features=VaapiVideoDecoder \
     --use-gl=desktop \
     --enable-gpu-rasterization \
