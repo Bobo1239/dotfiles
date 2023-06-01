@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/bin/lsblk -o name,size,fstype,type,mountpoint $@ | grep -v "loop /var/lib/snapd/"
