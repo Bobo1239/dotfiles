@@ -4,14 +4,11 @@
     email = bobo1239@web.de
     name = Boris-Chengbiao Zhou
 
-[core]
-    pager = delta
-
 [pull]
     ff = only
 
-[init]
-    defaultBranch = master
+[core]
+    pager = delta
 
 [delta]
     syntax-theme = base16
@@ -20,3 +17,9 @@
 
 [interactive]
     diffFilter = delta --color-only
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
