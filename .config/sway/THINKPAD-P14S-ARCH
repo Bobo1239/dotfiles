@@ -1,5 +1,4 @@
-output 'BOE 0x0982 Unknown' scale 2 position 0 720
-output 'Philips Consumer Electronics Company PHL 275E1 0x0000267B' position 1920 0 mode 2560x1440@74.968Hz
+output 'BOE 0x0982 Unknown' scale 2
 
 input 2:7:SynPS/2_Synaptics_TouchPad pointer_accel 0.5
 # Disable "On-Button scrolling" which prevents holding down the middle mouse button (used in 3D software)
@@ -8,4 +7,5 @@ input 2:10:TPPS/2_Elan_TrackPoint scroll_method none
 
 font "Hack 10"
 
+exec kanshi
 exec disable-p14s-leds
