@@ -7,4 +7,5 @@ profile {
     output 'BOE 0x0982 Unknown' scale 2 position 0,720
     output 'Philips Consumer Electronics Company PHL 275E1 0x0000267B' position 1920,0 mode 2560x1440@74.968Hz
     exec xrandr --output DP-1 --primary
+    exec ~/bin/scripts/move_workspaces_to_monitor.sh
 }
