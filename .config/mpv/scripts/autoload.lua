@@ -2,20 +2,21 @@
 -- the currently played file. It does so by scanning the directory a file is
 -- located in when starting playback. It sorts the directory entries
 -- alphabetically, and adds entries before and after the current file to
--- the internal playlist. (It stops if the it would add an already existing
+-- the internal playlist. (It stops if it would add an already existing
 -- playlist entry at the same position - this makes it "stable".)
 -- Add at most 5000 * 2 files when starting a file (before + after).
 
 --[[
-To configure this script use file autoload.conf in director script-opts (the "script-opts"
+To configure this script use file autoload.conf in directory script-opts (the "script-opts"
 directory must be in the mpv configuration directory, typically ~/.config/mpv/).
 
 Example configuration would be:
 
-disabled=false
-images=false
-videos=true
-audio=true
+disabled=no
+images=no
+videos=yes
+audio=yes
+ignore_hidden=yes
 
 --]]
 
@@ -29,7 +30,8 @@ o = {
     disabled = false,
     images = true,
     videos = true,
-    audio = true
+    audio = true,
+    ignore_hidden = true
 }
 options.read_options(o)
 
@@ -47,15 +49,18 @@ function SetUnion (a,b)
 end
 
 EXTENSIONS_VIDEO = Set {
-    'mkv', 'avi', 'mp4', 'ogv', 'webm', 'rmvb', 'flv', 'wmv', 'mpeg', 'mpg', 'm4v', '3gp'
+    '3g2', '3gp', 'avi', 'flv', 'm2ts', 'm4v', 'mj2', 'mkv', 'mov',
+    'mp4', 'mpeg', 'mpg', 'ogv', 'rmvb', 'webm', 'wmv', 'y4m'
 }
 
 EXTENSIONS_AUDIO = Set {
-    'mp3', 'wav', 'ogm', 'flac', 'm4a', 'wma', 'ogg', 'opus'
+    'aiff', 'ape', 'au', 'flac', 'm4a', 'mka', 'mp3', 'oga', 'ogg',
+    'ogm', 'opus', 'wav', 'wma'
 }
 
 EXTENSIONS_IMAGES = Set {
-    'jpg', 'jpeg', 'png', 'tif', 'tiff', 'gif', 'webp', 'svg', 'bmp'
+    'avif', 'bmp', 'gif', 'j2k', 'jp2', 'jpeg', 'jpg', 'jxl', 'png',
+    'svg', 'tga', 'tif', 'tiff', 'webp'
 }
 
 EXTENSIONS = Set {}
@@ -122,6 +127,16 @@ end
 
 local autoloaded = nil
 
+function get_playlist_filenames()
+  local filenames = {}
+  for n = 0, pl_count - 1, 1 do
+    local filename = mp.get_property('playlist/'..n..'/filename')
+    local _, file = utils.split_path(filename)
+    filenames[file] = true
+  end
+  return filenames
+end
+
 function find_and_add_entries()
     local path = mp.get_property("path", "")
     local dir, filename = utils.split_path(path)
@@ -134,7 +149,7 @@ function find_and_add_entries()
         return
     end
 
-    local pl_count = mp.get_property_number("playlist-count", 1)
+    pl_count = mp.get_property_number("playlist-count", 1)
     -- check if this is a manually made playlist
     if (pl_count > 1 and autoloaded == nil) or
        (pl_count == 1 and EXTENSIONS[string.lower(get_extension(filename))] == nil) then
@@ -155,7 +170,9 @@ function find_and_add_entries()
         return
     end
     table.filter(files, function (v, k)
-        if string.match(v, "^%.") then
+        -- The current file could be a hidden file, ignoring it doesn't load other
+        -- files from the current directory.
+        if (o.ignore_hidden and not (v == filename) and string.match(v, "^%.")) then
             return false
         end
         local ext = get_extension(v)
@@ -184,22 +201,17 @@ function find_and_add_entries()
     msg.trace("current file position in files: "..current)
 
     local append = {[-1] = {}, [1] = {}}
+    local filenames = get_playlist_filenames()
     for direction = -1, 1, 2 do -- 2 iterations, with direction = -1 and +1
         for i = 1, MAXENTRIES do
             local file = files[current + i * direction]
-            local pl_e = pl[pl_current + i * direction]
             if file == nil or file[1] == "." then
                 break
             end
 
             local filepath = dir .. file
-            if pl_e then
-                -- If there's a playlist entry, and it's the same file, stop.
-                msg.trace(pl_e.filename.." == "..filepath.." ?")
-                if pl_e.filename == filepath then
-                    break
-                end
-            end
+            -- skip files already in playlist
+            if filenames[file] then break end
 
             if direction == -1 then
                 if pl_current == 1 then -- never add additional entries in the middle
