@@ -6,7 +6,7 @@ local msg = require 'mp.msg'
 
 local hostname = mp.command_native({
     name = "subprocess",
-    args = {"hostname"},
+    args = { "hostname" },
     capture_stdout = true,
     playback_only = false,
 })
