@@ -1,0 +1,6 @@
+[submodule ".config/mpv/scripts/mpvacious"]
+	path = .config/mpv/scripts/mpvacious
+	url = https://github.com/Ajatt-Tools/mpvacious.git
+[submodule ".config/mpv/scripts/autosubsync"]
+	path = .config/mpv/scripts/autosubsync
+	url = https://github.com/Ajatt-Tools/autosubsync-mpv

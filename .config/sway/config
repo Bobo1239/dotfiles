@@ -195,10 +195,12 @@ bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
 bindsym XF86Display exec toggle_dpms eDP-1
 
-bindsym Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S_grim.png')
-bindsym $mod+Print exec grim-select ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S_grim.png')
-bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
-bindsym Shift+$mod+Print exec grim-select - | wl-copy
+bindsym Print exec grim-select ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S_grim.png')
+bindsym Shift+Print exec grim-select - | wl-copy
+# Anki screenshot
+bindsym Alt+Print exec ames -s
+# Anki audio recording
+bindsym Alt+Scroll_Lock exec ames -r
 
 bindsym $mod+l exec $lock
 

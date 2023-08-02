@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2034
+AUDIO_FIELD="SentAudio"
+SCREENSHOT_FIELD="Image"
+SENTENCE_FIELD="Sentence"
+# leave OUTPUT_MONITOR blank to autoselect a monitor.
+OUTPUT_MONITOR=""
+AUDIO_BITRATE="64k"
+AUDIO_FORMAT="opus"
+AUDIO_VOLUME="1"
+IMAGE_FORMAT="webp"
+# -2 to calculate dimension while preserving aspect ratio.
+IMAGE_WIDTH="1280"
+IMAGE_HEIGHT="-2"
+
+# Based on contrib/wayland
+
+get_selection() {
+    # get a region of the screen for future screenshotting.
+    slurp-select
+}
+
+take_screenshot_region() {
+    # function to take a screenshot of a given screen region.
+    # $1 is the geometry of the region from get_selection().
+    # $2 is the output file name.
+    local -r geom="$1"
+    local -r path="$2"
+    grim -g "$geom" "$path"
+}
+
+take_screenshot_window() {
+    # function to take a screenshot of the current window.
+    # $1 is the output file name.
+    local -r path="$1"
+    swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -g - "$path"
+}
+
+copied_text() {
+    # get the contents of the clipboard.
+    wl-paste
+}
+
+# Extend notification duration a bit
+
+notify_message() {
+    # send a notification with a message to the user.
+    # $1 is the string containing the message text.
+    #
+    # notifies both the console and with libnotify.
+    echo "$1"
+    notify-send --hint=int:transient:1 -t 2000 -u normal "$1"
+}
