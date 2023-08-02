@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# TODO: Solution for stylized subtitles
+# TODO: Solution for multiple audio tracks (languages)
+# See logseq...
+
+# mkv so we can embed metadata
+yt-dlp --embed-metadata --embed-thumbnail --embed-subs --embed-chapters --all-subs --merge-output-format mkv $@
