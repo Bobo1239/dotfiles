@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# Required while I'm using freecad-weekly-appimage
-export QT_QPA_PLATFORM=xcb
-exec /usr/bin/freecad $@
