@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+
+# Script to run Textractor.exe in the same Proton prefix as the currently running game in Steam. (can be a non-steam game)
+
+import os
+import psutil
+import subprocess
+
+
+def find_exactly_one(list, condition):
+    found = [x for x in list if condition(x)]
+    assert len(found) == 1
+    return found[0]
+
+
+# Find Steam process for the currently running game
+p = find_exactly_one(
+    psutil.process_iter(),
+    # Second condition is needed when e.g. gamescope is used (resulting in two search hits for the first condition)
+    lambda p: "SteamLaunch" in p.cmdline() and p.cmdline()[0].endswith("/reaper"),
+)
+
+# Inherit environment (for WAYLAND_DISPLAY, etc.)
+env = os.environ
+
+# Find relevant env vars for Proton
+for e in ["STEAM_COMPAT_CLIENT_INSTALL_PATH", "STEAM_COMPAT_DATA_PATH"]:
+    env[e] = p.environ()[e]
+    print(f"{e}: {env[e]}")
+
+# Find the executable path for the used Proton version
+proton_path = find_exactly_one(p.cmdline(), lambda x: x.endswith("/proton"))
+print(f"Proton: {proton_path}")
+
+# Start Textractor in the Proton prefix
+textractor_path = env["HOME"] + "/bin/apps/Textractor/x86/Textractor.exe"
+subprocess.run([proton_path, "run", textractor_path], env=env)
