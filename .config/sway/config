@@ -243,6 +243,7 @@ exec gammastep
 exec mako
 exec nextcloud
 exec fcitx5
+exec texthooker_websocket_proxy
 
 include /etc/sway/config.d/*
 include ~/.config/sway/`hostname`
