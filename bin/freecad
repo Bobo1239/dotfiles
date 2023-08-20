@@ -1,5 +1,6 @@
 #!/bin/bash
 
 # Stick with X11 for now due to bugs such as https://github.com/realthunder/FreeCAD_assembly3/issues/1316 ...
+# Also required since we're using freecad-appimage (due to some weird C++ assertion errors with the normal Arch package)
 export QT_QPA_PLATFORM=xcb
 exec /usr/bin/freecad $@
