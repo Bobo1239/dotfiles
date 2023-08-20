@@ -17,6 +17,6 @@ mp.command_native_async({
         "-m",
         "/tmp/mpv-socket",
         "-w",
-        "6677",
+        "6676",
     },
 })
