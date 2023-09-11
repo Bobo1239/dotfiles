@@ -42,8 +42,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 eval (dircolors -c)
-# Fix for invisible punctuation in eza: https://github.com/orgs/eza-community/discussions/209
-export EXA_COLORS=xx=38\;5\;244
 
 # Fuck pyur...
 # export GIT_SSH=$HOME/bin/ssh_fuck_pyur.py
