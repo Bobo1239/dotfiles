@@ -55,3 +55,8 @@ colors:
     focused_match:
       foreground: '0x181818'
       background: '0xf7ca88'
+
+key_bindings:
+  - { key: Return, mods: Control, action: SpawnNewInstance }
+commands:
+  - { name: SpawnNewInstance, command: alacritty & disown }
