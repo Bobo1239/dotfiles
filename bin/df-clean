@@ -1,3 +1,8 @@
 #!/bin/bash
 
-/bin/df -h $@ | grep -v /var/lib/snapd/ | awk 'NR==1{print $0;next}{print $0| "LC_ALL=C sort"}'
+/bin/df -h $@ \
+    | grep -v /var/lib/snapd/ \
+    | grep -v /sys/firmware/efi/efivars \
+    | grep -v "^dev " \
+    | grep -v "^run " \
+    | awk 'NR==1{print $0;next}{print $0| "LC_ALL=C sort"}'
