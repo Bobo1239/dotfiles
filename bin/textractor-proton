@@ -32,6 +32,13 @@ for e in ["STEAM_COMPAT_CLIENT_INSTALL_PATH", "STEAM_COMPAT_DATA_PATH"]:
 proton_path = find_exactly_one(p.cmdline(), lambda x: x.endswith("/proton"))
 print(f"Proton: {proton_path}")
 
+# Determine if .exe is 32 or 64 bit
+exe_path = p.cmdline()[-1]
+file_output = subprocess.run(["file", "-b", exe_path], stdout=subprocess.PIPE).stdout
+is_64bit = b"x86-64" in file_output
+arch = "x64" if is_64bit else "x86"
+print(f"Arch: {arch}")
+
 # Start Textractor in the Proton prefix
-textractor_path = env["HOME"] + "/bin/apps/Textractor/x86/Textractor.exe"
+textractor_path = env["HOME"] + f"/bin/apps/Textractor/{arch}/Textractor.exe"
 subprocess.run([proton_path, "run", textractor_path], env=env)
