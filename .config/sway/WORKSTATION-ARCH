@@ -2,28 +2,28 @@
 # - https://github.com/swaywm/sway/issues/3135
 # - https://bugreports.qt.io/browse/QTBUG-53813
 # output "Unknown DM700A-H 0x00000000" position 0 360
-# output "ViewSonic Corporation XG3240C 0x00000101" mode 2560x1440@143.912003Hz position 1920 0
+# output "ViewSonic Corporation XG3240C 0x01010101" mode 2560x1440@143.912003Hz position 1920 0
 # output "Hewlett Packard HP ZR24w CNT1301338" position 4480 240
 
 # XWayland windows are unclickable on left monitor:
 # https://gitlab.freedesktop.org/xorg/xserver/issues/899
 # output "Unknown DM700A-H 0x00000000" position -1920 360
-# output "ViewSonic Corporation XG3240C 0x00000101" mode 2560x1440@143.912003Hz position 0 0
+# output "ViewSonic Corporation XG3240C 0x01010101" mode 2560x1440@143.912003Hz position 0 0
 # output "Hewlett Packard HP ZR24w CNT1301338" position 2560 240
 
 # Everything works but mouse jumps from middle to left monitor...
 output "Samsung Electronics Company Ltd DM700A-H Unknown" position 0 0
-output "ViewSonic Corporation XG3240C 0x00000101" mode 2560x1440@143.912003Hz position 1920 0
+output "ViewSonic Corporation XG3240C 0x01010101" mode 2560x1440@143.912003Hz position 1920 0
 output "Hewlett Packard HP ZR24w CNT1301338" position 4480 240
 
 # Map graphic tablet to main display
-input 1386:770:Wacom_Intuos_PT_S_Pen map_to_output "ViewSonic Corporation XG3240C 0x00000101"
+input 1386:770:Wacom_Intuos_PT_S_Pen map_to_output "ViewSonic Corporation XG3240C 0x01010101"
 
-workspace 1 output "ViewSonic Corporation XG3240C 0x00000101"
-workspace 2 output "ViewSonic Corporation XG3240C 0x00000101"
-workspace 3 output "ViewSonic Corporation XG3240C 0x00000101"
-workspace 4 output "ViewSonic Corporation XG3240C 0x00000101"
-workspace 5 output "ViewSonic Corporation XG3240C 0x00000101"
+workspace 1 output "ViewSonic Corporation XG3240C 0x01010101"
+workspace 2 output "ViewSonic Corporation XG3240C 0x01010101"
+workspace 3 output "ViewSonic Corporation XG3240C 0x01010101"
+workspace 4 output "ViewSonic Corporation XG3240C 0x01010101"
+workspace 5 output "ViewSonic Corporation XG3240C 0x01010101"
 
 # This makes wine tray icons appear in swaybar instead of a separate floating window
 exec /home/bobo1239/Development/Random/plasma-workspace/xembed-sni-proxy/build/xembedsniproxy
