@@ -241,7 +241,6 @@ for_window [app_id="zoom" title="Zoom Meeting(.*)?"] workspace zoom, move contai
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec gammastep
 exec mako
-exec nextcloud
 exec fcitx5
 exec texthooker_websocket_proxy
 
