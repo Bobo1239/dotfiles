@@ -5,4 +5,4 @@
 # See logseq...
 
 # mkv so we can embed metadata
-yt-dlp --embed-metadata --embed-thumbnail --embed-subs --embed-chapters --sub-langs all,-live_chat --write-subs --merge-output-format mkv $@
+yt-dlp --embed-metadata --embed-thumbnail --embed-subs --embed-chapters --sub-langs all,-live_chat,-rechat --write-subs --merge-output-format mkv $@
