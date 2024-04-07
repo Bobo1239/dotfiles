@@ -27,6 +27,7 @@ alias cat=bat
 alias ls=eza
 alias yay=paru
 alias gits="git status"
+alias cal="cal -m"
 alias cya="shutdown -h now"
 
 for rb in $HOME/.gem/ruby/*
