@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# Contrary to the Arch wiki, using .config/code-flags.conf doesn't work for some reason
-# Packages for OSS code: code, code-features, code-marketplace; unfortunately still doesn't work with Remote - SSH :(
-exec /usr/bin/code --ozone-platform-hint=auto $@

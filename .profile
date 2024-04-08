@@ -7,9 +7,8 @@ export XDG_CURRENT_DESKTOP=sway
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
-# Required for anki-official-binary-bundle; the (self-compiled) anki package doesn't need this but
-# currently exhibits a crash when drag-and-dropping stuff from a card...
 export ANKI_WAYLAND=1
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
 
 # Needed to open links in discord...
 # https://bugzilla.mozilla.org/show_bug.cgi?id=1508803
