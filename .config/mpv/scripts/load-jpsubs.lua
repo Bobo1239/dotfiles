@@ -81,11 +81,18 @@ local function load_jpsub(asd)
     end)
     table.sort(subfiles, alnumcomp)
 
-    local playlist_count = mp.get_property_native("playlist-count")
+    local playlist = mp.get_property_native("playlist")
     local playlist_pos = mp.get_property("playlist-pos")
 
-    if playlist_count ~= #subfiles then
-        msg.warn("Number of files in jpsubs didn't match number of playlist entries.")
+    -- Filter out directories; autoload.lua now loads files lazily which creates an additional entry
+    -- for jpsubs making the list counts mismatch if not filtered out
+    table.filter(playlist, function(item)
+        local filename, extension = string.match(item["filename"], "(.+)(%..+)")
+        return extension ~= nil
+    end)
+
+    if #playlist ~= #subfiles then
+        msg.warn(string.format("Number of files in jpsubs didn't match number of playlist entries. %d != %d", #subfiles, #playlist))
     else
         local subfile_name = subfiles[playlist_pos + 1]
         local subfile = utils.join_path(subdir, subfile_name)
@@ -111,11 +118,11 @@ local function remember_active_tracks(asd)
 end
 
 -- This happens after track selection so mpv forgets the previously selected tracks since the number
--- of tracks changedI
+-- of tracks changed.
 -- NOTE: We can't use `start-file` (which would handle this properly) since that's the same event
 -- autoload.lua uses and then the playlist isn't populated yet when we reach our code. Since events
 -- are asynchronous we have no way to express that we want to execute after autoload.lua. (Could
--- modify both scripts to use hooks which  are run synchronously but then we need to modify
+-- modify both scripts to use hooks which are run synchronously but then we need to modify
 -- autoload.lua.)
 mp.register_event("file-loaded", load_jpsub)
 -- As a workaround we remember which tracks were last selected and restore them when loading new
