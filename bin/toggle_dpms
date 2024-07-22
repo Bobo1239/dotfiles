@@ -2,12 +2,12 @@
 # https://www.reddit.com/r/swaywm/comments/kpv3fi/dpms_toggle/gi1vql8/
 
 OUTPUT=$1
+FORCE=$2 # Force enable
 # `jq -e` will exit with exitcode=1 if final value is false.
-if swaymsg -t get_outputs -r | jq -e '.[] | select(.name=="'${OUTPUT}'") | .active' ; then {
+if [ -z "${FORCE}" ] && swaymsg -t get_outputs -r | jq -e '.[] | select(.name=="'${OUTPUT}'") | .active' ; then
     swaymsg output ${OUTPUT} disable
     echo "Disabled"
-} else {
+else
     swaymsg output ${OUTPUT} enable
     echo "Enabled"
-}
 fi
