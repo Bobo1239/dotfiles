@@ -15,6 +15,9 @@
     navigate = true
     relative-paths = true
 
+[pager]
+    difftool = true
+
 [interactive]
     diffFilter = delta --color-only
 
@@ -23,6 +26,18 @@
 
 [diff]
     colorMoved = default
+    tool = difftastic
 
 [diff "fcinfo"]
     textconv = fcinfo
+
+[difftool]
+    prompt = false
+
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
+
+[alias]
+    difft = "difftool"
+    # From https://stackoverflow.com/a/42956594
+    showt = "!showci () { rev=$(git rev-parse \"${*:-HEAD}\"); git difftool -d $rev~1 $rev; }; showci"
