@@ -2,7 +2,10 @@
 
 /bin/df -h $@ \
     | grep -v /var/lib/snapd/ \
+    | grep -v /run/credentials/ \
+    | grep -v /run/user/ \
     | grep -v /sys/firmware/efi/efivars \
+    | grep -v /dev/shm \
     | grep -v "^dev " \
     | grep -v "^run " \
-    | awk 'NR==1{print $0;next}{print $0| "LC_ALL=C sort"}'
+    | awk 'NR==1{print $0;next}{print $0 | "LC_ALL=C sort"}'
