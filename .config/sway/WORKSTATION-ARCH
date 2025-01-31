@@ -28,7 +28,7 @@ workspace 5 output "ViewSonic Corporation XG3240C 0x01010101"
 # This makes wine tray icons appear in swaybar instead of a separate floating window
 exec /home/bobo1239/Development/Random/plasma-workspace/xembed-sni-proxy/build/xembedsniproxy
 
-exec xrandr --output DP-2 --primary
+exec kanshi
 exec discord --start-minimized
 
 # exec element-desktop --hidden
