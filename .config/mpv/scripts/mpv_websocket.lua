@@ -16,7 +16,9 @@ mp.command_native_async({
         mpv_websocket_path,
         "-m",
         "/tmp/mpv-socket",
-        "-w",
+        "-a",
+        "127.0.0.1",
+        "-p",
         "6676",
     },
 })
