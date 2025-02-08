@@ -1,4 +1,4 @@
-output 'BOE 0x0982 Unknown' scale 2 mode 3840x2160@60.007Hz
+output 'Lenovo Group Limited 0x416A Unknown' scale 2 mode 3840x2160@60.007Hz
 output 'Philips Consumer Electronics Company PHL 275E1 0x0000267B' scale 1 mode 2560x1440@74.968Hz
 
 output "Samsung Electronics Company Ltd DM700A-H Unknown" scale 1 mode 1920x1080@60.000Hz
@@ -6,12 +6,12 @@ output 'ViewSonic Corporation XG3240C 0x01010101' scale 1 mode 2560x1440@143.912
 output "Hewlett Packard HP ZR24w CNT1301338" scale 1 mode 1920x1200@59.950Hz
 
 profile {
-    output 'BOE 0x0982 Unknown' position 0,0
+    output 'Lenovo Group Limited 0x416A Unknown' position 0,0
     exec xrandr --output eDP-1 --primary
 }
 
 profile {
-    output 'BOE 0x0982 Unknown' position 0,720
+    output 'Lenovo Group Limited 0x416A Unknown' position 0,720
     output 'Philips Consumer Electronics Company PHL 275E1 0x0000267B' position 1920,0
     exec xrandr --output DP-1 --primary
     exec ~/bin/scripts/move_workspaces_to_monitor.sh
