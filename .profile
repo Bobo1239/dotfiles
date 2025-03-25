@@ -34,8 +34,8 @@ for rb in $HOME/.gem/ruby/*
 end
 
 export PATH="$HOME/go/bin:$PATH"
-export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/.local/share/coursier/bin:$PATH"
+export PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
 export PATH="$HOME/.dotnet/tools:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
