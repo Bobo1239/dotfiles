@@ -4,6 +4,3 @@
 [submodule ".config/mpv/scripts/autosubsync"]
 	path = .config/mpv/scripts/autosubsync
 	url = https://github.com/Ajatt-Tools/autosubsync-mpv
-[submodule ".config/mpv/scripts/thumbfast"]
-	path = .config/mpv/scripts/thumbfast
-	url = git@github.com:po5/thumbfast.git
