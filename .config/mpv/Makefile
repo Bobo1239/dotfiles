@@ -1,5 +1,5 @@
 all: mpv_websocket
-	pipx install ffsubsync
+	uv tool install ffsubsync
 
 mpv_websocket:
 	rm -rf mpv_websocket_src
