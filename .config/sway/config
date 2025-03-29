@@ -238,6 +238,13 @@ for_window [app_id="zoom" title="Settings"] floating enable, floating_minimum_si
 # Open Zoom Meeting windows on a new workspace (a bit hacky)
 for_window [app_id="zoom" title="Zoom Meeting(.*)?"] workspace zoom, move container to workspace current, floating disable, inhibit_idle open
 
+# Output configuration (arrangement of displays is done using kanshi)
+output "ViewSonic Corporation XG3240C 0x01010101" scale 1 mode 2560x1440@143.912Hz color_profile icc "~/.config/sway/icc_profiles/viewsonic_xg3240c.icc"
+output "Hewlett Packard HP ZR24w CNT1301338" scale 1 mode 1920x1200@59.950Hz color_profile icc "~/.config/sway/icc_profiles/hp_zr24w.icc"
+output "Samsung Electronics Company Ltd DM700A-H Unknown" scale 1 mode 1920x1080@60.000Hz
+output "Lenovo Group Limited 0x416A Unknown" scale 2 mode 3840x2160@60.007Hz
+output "Philips Consumer Electronics Company PHL 275E1 0x0000267B" scale 1 mode 2560x1440@74.968Hz
+
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec gammastep
 exec mako

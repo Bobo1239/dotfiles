@@ -12,9 +12,9 @@
 # output "Hewlett Packard HP ZR24w CNT1301338" position 2560 240
 
 # Everything works but mouse jumps from middle to left monitor...
-output "Samsung Electronics Company Ltd DM700A-H Unknown" position 0 0
-output "ViewSonic Corporation XG3240C 0x01010101" mode 2560x1440@143.912003Hz position 1920 0
-output "Hewlett Packard HP ZR24w CNT1301338" position 4480 240
+# output "Samsung Electronics Company Ltd DM700A-H Unknown" position 0 0
+# output "ViewSonic Corporation XG3240C 0x01010101" mode 2560x1440@143.912003Hz position 1920 0
+# output "Hewlett Packard HP ZR24w CNT1301338" position 4480 240
 
 # Map graphic tablet to main display
 input 1386:770:Wacom_Intuos_PT_S_Pen map_to_output "ViewSonic Corporation XG3240C 0x01010101"

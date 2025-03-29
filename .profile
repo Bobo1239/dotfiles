@@ -3,6 +3,8 @@ export EDITOR=nvim
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=sway
 
+export WLR_RENDERER=vulkan
+
 # Enable Wayland where possible
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
