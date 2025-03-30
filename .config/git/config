@@ -1,11 +1,33 @@
 # NOTE: Override host-specific settings in ~/.gitconfig
 
+# Reference for some of the settings: https://blog.gitbutler.com/how-git-core-devs-configure-git/
+
 [user]
     email = bobo1239@web.de
     name = Boris-Chengbiao Zhou
 
 [pull]
     ff = only
+
+[log]
+    date = "format:%a %Y-%m-%d %H:%M:%S %z"
+
+[column]
+    ui = auto
+
+[branch]
+    sort = -committerdate
+
+[tag]
+    sort = version:refname
+
+[init]
+    defaultBranch = master
+
+[rebase]
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
 
 [core]
     pager = delta
@@ -22,7 +44,7 @@
     diffFilter = delta --color-only
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 
 [diff]
     colorMoved = default
