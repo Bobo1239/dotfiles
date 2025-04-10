@@ -7,6 +7,7 @@
 
 # XWayland windows are unclickable on left monitor:
 # https://gitlab.freedesktop.org/xorg/xserver/issues/899
+# Also causes `xrandr --primary` to fail which is problematic for games
 # output "Unknown DM700A-H 0x00000000" position -1920 360
 # output "ViewSonic Corporation XG3240C 0x01010101" mode 2560x1440@143.912003Hz position 0 0
 # output "Hewlett Packard HP ZR24w CNT1301338" position 2560 240
