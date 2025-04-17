@@ -1,3 +1,5 @@
 [binds]
+<r> = rotate by 90
+<Shift+R> = rotate by -90
 <Ctrl+P> = exec lpr "$imv_current_file"
 <Ctrl+Shift+X> = exec rm "$imv_current_file"; close
