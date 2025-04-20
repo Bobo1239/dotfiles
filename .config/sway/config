@@ -1,4 +1,5 @@
 ### Variables
+#
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -25,13 +26,22 @@ set $base0D #7cafc2
 set $base0E #ba8baf
 set $base0F #a16946
 
+# Your preferred terminal emulator
 set $term alacritty
 set $lock swaylock -f -i ~/Pictures/Wallpapers/kimi_no_na_wa_2.png
+# Your preferred application launcher
 set $menu bemenu-run -i -m all -p "" --fn Inconsolata --fb \\$base00 --nb \\$base00 --hb \\$base00 --tf \\$base05 --nf \\$base05 --hf \\$base09 | xargs swaymsg exec --
 
 ### Output configuration
-# List outputs: `swaymsg -t get_outputs`
+#
+# Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 output * bg ~/Pictures/Wallpapers/kimi_no_na_wa_1.png fill
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
 #
@@ -39,8 +49,7 @@ output * bg ~/Pictures/Wallpapers/kimi_no_na_wa_1.png fill
 #
 # exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 #          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -50,13 +59,26 @@ output * bg ~/Pictures/Wallpapers/kimi_no_na_wa_1.png fill
 exec swayidle -w before-sleep '$lock'
 
 ### Input configuration
-# List inputs: `swaymsg -t get_inputs`
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
 
 # Disable mouse acceleration
 input * accel_profile flat
 
 ### Key bindings
+#
 # Basics:
+#
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -77,8 +99,10 @@ input * accel_profile flat
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+#
 # Moving around:
+#
     # Move your focus around
     # bindsym $mod+$left focus left
     # bindsym $mod+$down focus down
@@ -100,36 +124,43 @@ input * accel_profile flat
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+#
 # Workspaces:
+#
     # Switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace 1
-    bindsym $mod+Shift+2 move container to workspace 2
-    bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
-    bindsym $mod+Shift+6 move container to workspace 6
-    bindsym $mod+Shift+7 move container to workspace 7
-    bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
     # Move the active workspace across outputs
     bindsym $mod+comma move workspace to output left
     bindsym $mod+period move workspace to output right
+
+    bindsym $mod+Prior workspace prev
+    bindsym $mod+Next workspace next
+#
 # Layout stuff:
+#
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
@@ -152,7 +183,9 @@ input * accel_profile flat
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+#
 # Scratchpad:
+#
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
@@ -162,7 +195,9 @@ input * accel_profile flat
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+#
 # Resizing containers:
+#
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -184,36 +219,42 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+#
+# Utilities:
+#
+    # Special keys to adjust volume via PulseAudio
+    bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+    bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+    # Special keys to adjust brightness via brightnessctl
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    # Special key to take a screenshot with grim
+    # bindsym Print exec grim
 
-# Use `wev` to find out key names
-bindsym XF86AudioRaiseVolume exec pamixer -i 5
-bindsym XF86AudioLowerVolume exec pamixer -d 5
-bindsym XF86AudioMute exec pamixer -t
-bindsym XF86AudioMicMute exec pamixer --default-source -t
+    bindsym Print exec grim-select ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S_grim.png')
+    bindsym Shift+Print exec grim-select - | wl-copy
+    # Anki screenshot
+    bindsym Alt+Print exec ames -s
+    # Anki audio recording
+    bindsym Alt+Scroll_Lock exec ames -r
 
-bindsym XF86MonBrightnessUp exec brightnessctl set 5+
-bindsym XF86MonBrightnessDown exec brightnessctl set 5-
-bindsym XF86Display exec toggle_dpms eDP-1
-
-bindsym Print exec grim-select ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S_grim.png')
-bindsym Shift+Print exec grim-select - | wl-copy
-# Anki screenshot
-bindsym Alt+Print exec ames -s
-# Anki audio recording
-bindsym Alt+Scroll_Lock exec ames -r
-
-bindsym $mod+l exec $lock
-
-bindsym $mod+Prior workspace prev
-bindsym $mod+Next workspace next
-
+    bindsym $mod+l exec $lock
+    bindsym XF86Display exec toggle_dpms eDP-1
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
 set $bar_fg $base04
 set $bar_bg $base00
 set $bar_primary $base09
 set $bar_comment $base03
-
 bar {
     position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
     status_command ~/.cargo/bin/bar1239
 
     colors {
