@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# NOTE: Symlink to /lib/systemd/system-sleep/ so it gets executed automatically
+# after resuming from sleep.
+
 # Enable first since they get stuck sometimes
 echo 1 | sudo tee /sys/class/leds/tpacpi::power/brightness
 echo 1 | sudo tee /sys/class/leds/platform::micmute/brightness
