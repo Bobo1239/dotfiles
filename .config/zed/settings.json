@@ -7,14 +7,16 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "base_keymap": "SublimeText",
   "telemetry": {
     "metrics": false,
     "diagnostics": false
   },
+  "base_keymap": "SublimeText",
+  "buffer_font_family": "Hack",
   "ui_font_size": 16,
   "buffer_font_size": 16,
-  "buffer_font_family": "Hack",
+  "preferred_line_length": 100,
+  "wrap_guides": [100],
   "theme": {
     "mode": "system",
     "light": "One Light",
@@ -24,6 +26,22 @@
   "git": {
     "inline_blame": {
       "enabled": false
+    }
+  },
+  "languages": {
+    "Python": {
+      "formatter": [
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        },
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": true
+          }
+        }
+      ]
     }
   },
   "lsp": {
