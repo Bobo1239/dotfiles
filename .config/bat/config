@@ -1,2 +1,3 @@
 --theme=base16
 --style=plain
+--pager=builtin
