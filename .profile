@@ -5,6 +5,9 @@ export XDG_CURRENT_DESKTOP=sway
 
 export WLR_RENDERER=vulkan
 
+# Enable QT5/6 dark mode
+export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
+
 # Enable Wayland where possible
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
