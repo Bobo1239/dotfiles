@@ -31,7 +31,7 @@ alias gits="git status"
 alias cal="cal -m"
 alias cya="shutdown -h now"
 
-for rb in $HOME/.gem/ruby/*
+for rb in $HOME/.local/share/gem/ruby/*
     export PATH="$rb/bin:$PATH"
 end
 
