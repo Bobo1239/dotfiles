@@ -23,6 +23,9 @@
     "dark": "Base16 Default Dark"
   },
   "format_on_save": "off",
+  "remove_trailing_whitespace_on_save": false,
+  "extend_comment_on_newline": false,
+  "show_whitespaces": "trailing",
   "git": {
     "inline_blame": {
       "enabled": false
@@ -37,9 +40,7 @@
           }
         },
         {
-          "code_actions": {
-            "source.organizeImports.ruff": true
-          }
+          "code_action": "source.organizeImports.ruff"
         }
       ]
     }
