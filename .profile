@@ -33,6 +33,7 @@ alias yay=paru
 alias gits="git status"
 alias cal="cal -m"
 alias cya="shutdown -h now"
+alias cget="curl -fLOJ -w 'Saved to %{filename_effective}\n'"
 
 for rb in $HOME/.local/share/gem/ruby/*
     export PATH="$rb/bin:$PATH"
