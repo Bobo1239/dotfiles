@@ -1,0 +1,10 @@
+configuration {
+ modi: "window,run,drun,combi";
+ font: "Inconsolata 12";
+ combi-modi: "drun,run";
+ show-icons: true;
+ disable-history: true;
+ sort: true;
+ sorting-method: "fzf";
+}
+@theme "base16-default-dark"
