@@ -307,3 +307,4 @@ exec texthooker_websocket_proxy
 
 include /etc/sway/config.d/*
 include ~/.config/sway/`hostname`
+exec_always systemctl --user restart sway-session.target
