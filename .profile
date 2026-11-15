@@ -30,6 +30,7 @@ alias vim=nvim
 alias cat=bat
 alias ls=eza
 alias yay=paru
+alias py=python
 alias gits="git status"
 alias cal="cal -m"
 alias cya="shutdown -h now"
