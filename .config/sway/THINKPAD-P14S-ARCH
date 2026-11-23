@@ -9,3 +9,4 @@ font "Hack 10"
 
 exec kanshi
 exec disable-p14s-leds
+exec easyeffects --gapplication-service
